@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+<h:form>
+	<div>
+		Data de Início:
+		<h:inputText value="#{listarPermanencias.dtInicio}"></h:inputText>
+		Data de Fim: 
+		<h:inputText value="#{listarPermanencias.dtFim}"></h:inputText>
+		<br/>
+		<a4j:commandButton value="Pesquisar" render="consulta"></a4j:commandButton>
+	</div>
+</h:form>
+	<h:panelGroup id="consulta" rendered="#{listarPermanencias.listaPermanenciaNavio != null}">
+		<h:dataTable value="#{listarPermanencias.listaPermanenciaNavio}" var="permanencia">
+			<h:column>
+				<h:outputText value="#{permanencia.identificacao}"></h:outputText>
+			<c:facet name="header">
+				<b>Identificação</b>
+			</c:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{permanencia.dtEntrada}"></h:outputText>
+			<c:facet name="header">
+				<b>Entrada</b>
+			</c:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{permanencia.dtSaida}" rendered="#{permanencia.dtSaida != null}"></h:outputText>
+			<c:facet name="header">
+				<b>Saída</b>
+			</c:facet>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{permanencia.nacionalidade}"></h:outputText>
+			<c:facet name="header">
+				<b>Nacionalidade</b>
+			</c:facet>
+			</h:column>
+			<h:column>
+				<h:commandLink value="Emissão de Recibo" action="emissaoRecibo" rendered="#{permanencia.dtSaida != null}">
+					<c:param value="#{permanencia.identificacao}" name="identificacao"></c:param>
+					<c:param value="#{permanencia.sequencial}" name="sequencial"></c:param>
+				</h:commandLink>
+			<c:facet name="header">
+				<b></b>
+			</c:facet>
+			</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+</h:body>
+</html>

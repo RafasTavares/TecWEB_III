@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+	
+<h:form >
+	<h:dataTable border="1" value="#{categorias.categorias}" var="categoria">
+		<h:column id="column1">
+				<h:commandButton value="Editar" actionListener="#{categorias.cbEditarActionListener}" action="novaCategoria"></h:commandButton>
+				<h:commandButton value="Excluir" actionListener="#{categorias.cbExcluirActionListener}" action="categorias"></h:commandButton>
+			<c:facet name="header">
+				<h:commandButton value="Novo" action="novaCategoria"></h:commandButton>
+			</c:facet>
+		</h:column>
+		<h:column id="column2">
+		<h:outputText value="#{categoria.codigo}"></h:outputText>
+		
+			<c:facet name="header">
+				<h:outputText value="Codigo"></h:outputText>
+			</c:facet>
+		</h:column>
+		<h:column id="column3">
+		<h:outputText value="#{categoria.nome}"></h:outputText>
+			<c:facet name="header">
+				<h:outputText value="Nome"></h:outputText>
+			</c:facet>
+		</h:column>
+		<h:column id="column4">
+				<h:commandLink value="Subcategorias" actionListener="#{categorias.cdSubcategoriasActionListener}" action="subcategorias" >
+					
+				</h:commandLink>
+			</h:column>
+	</h:dataTable>
+</h:form>
+</h:body>
+</html>

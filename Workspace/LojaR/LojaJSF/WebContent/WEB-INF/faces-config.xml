@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1">
+	<managed-bean>
+		<managed-bean-name>categorias</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Categorias</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>novaCategoria</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.NovaCategoria</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>subcategorias</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Subcategorias</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>novaSubcategoria</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.NovaSubcategoria</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>template</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Template</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>index</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Index</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>detalhesProduto</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.DetalhesProduto</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>produtos</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Produtos</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>carrinho</managed-bean-name>
+		<managed-bean-class>br.unit.mbean.Carrinho</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+</faces-config>

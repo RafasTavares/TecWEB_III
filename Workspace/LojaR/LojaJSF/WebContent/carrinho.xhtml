@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+	
+<h:form >
+	<h:dataTable border="1" value="#{carrinho.itensPedidos}" var="pedido">
+		<h:column id="column1">
+			<h:outputText value="#{carrinho.nomeProduto}"></h:outputText>
+		
+			<c:facet name="header">
+				<h:outputText value="Produto"></h:outputText>
+			</c:facet>
+		</h:column>
+		<h:column id="column2">
+		<h:outputText value="R$#{pedido.precoUnitario}"></h:outputText>
+		
+			<c:facet name="header">
+				<h:outputText value="Preço"></h:outputText>
+			</c:facet>
+		</h:column>
+		<h:column id="column3">
+		<h:outputText value="#{pedido.quantidade}"></h:outputText>
+			<c:facet name="header">
+				<h:outputText value="Quantidade"></h:outputText>
+			</c:facet>
+			<c:facet name="footer">
+				<b>TOTAL: </b>
+			</c:facet>
+		</h:column>
+		<h:column id="column4">
+				<h:outputText value="R$#{pedido.precoUnitario * pedido.quantidade}"></h:outputText>
+			<c:facet name="header">
+				<h:outputText value="Preço Total"></h:outputText>
+			</c:facet>
+			<c:facet name="footer">
+				<h:outputText value="R$#{carrinho.valorTotal}"></h:outputText>
+			</c:facet>
+		</h:column>
+	</h:dataTable>
+</h:form>
+</h:body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://java.sun.com/jsf/html">
+<p:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</p:head>
+<p:body>
+	<p:form>
+		
+		<div>
+			<h2><p:outputText value="#{subcategorias.categoria.nome}"></p:outputText></h2> <p:commandLink value="Voltar" action="categorias"></p:commandLink>
+		</div>
+		<p:inputHidden value="#{subcategorias.codigoCategoria}" label="codigoCategoria"></p:inputHidden>
+		<p:dataTable border="1" value="#{subcategorias.subcategorias}" var="subcategoria">
+			<p:column >
+					<p:commandButton value="Editar" actionListener="#{subcategorias.cbEditarActionListener}" action="novaSubcategoria">
+					<c:param name="codCategoria" value="#{subcategorias.codigoCategoria}"></c:param>
+					</p:commandButton>
+					<p:commandButton value="Excluir" actionListener="#{subcategorias.cbExcluirActionListener}" action="subcategorias"></p:commandButton>
+				<c:facet name="header">
+					<p:commandButton value="Novo" action="novaSubcategoria">
+					<c:param name="codCategoria" value="#{subcategorias.codigoCategoria}"></c:param>
+					</p:commandButton>
+				</c:facet>
+			</p:column>
+			<p:column >
+				<p:outputText value="#{subcategoria.codigo}"></p:outputText>
+				<c:facet name="header">
+					<p:outputText value="Código"></p:outputText>
+				</c:facet>
+			</p:column>
+			<p:column >
+				<p:outputText value="#{subcategoria.nome}"></p:outputText>
+				<c:facet name="header">
+					<p:outputText value="Nome"></p:outputText>
+				</c:facet>
+			</p:column>
+		</p:dataTable>
+	</p:form>
+</p:body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:s="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<style>
+	.detalhes{
+		margin: 5px 10px;
+		float:left;
+	}
+	#imagem{
+		width:19%;
+		float:left;
+	}
+</style>
+</h:head>
+<h:body>
+<h:form>
+	<div class="detalhes">
+		<div style="width:80%;float:left;">
+			<a4j:commandLink value="Voltar" actionListener="#{detalhesProduto.cbVoltarActionListener}" render="panelProdutos">
+			</a4j:commandLink>
+			<div>
+				<h2><h:outputText value="#{detalhesProduto.produto.nome}"></h:outputText></h2>	
+			</div>
+				<h:outputText value="#{detalhesProduto.produto.descricao}"></h:outputText> <br/>
+				Preço R$<h:outputText value="#{detalhesProduto.produto.preco}"></h:outputText> <br/>
+				
+				<a4j:commandLink value="Adicionar no Carrinho" actionListener="#{detalhesProduto.cbAddCarrinhoActionListener}">
+					<c:param name="cdProduto" value="#{detalhesProduto.produto.codigo}"></c:param>
+				</a4j:commandLink>
+		</div>
+		<div id="imagem">
+			
+		</div>
+	</div>
+</h:form>
+</h:body>
+</html>

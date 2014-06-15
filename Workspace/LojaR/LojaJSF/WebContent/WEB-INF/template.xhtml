@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="titulo" >Loja</ui:insert></title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+	<script src="../js/bootstrap.min.js"></script>
+	<style>
+		.header{
+			width:100%;
+			border:1px solid;
+		}
+		
+		.menuSubCategorias{
+			width:30%;
+			float:left;
+			border:1px solid;	
+		}
+		
+		.conteudo {
+			width:50%;
+			border:1px solid;
+		}
+	</style>
+</h:head>
+
+<h:body>
+	<!-- Cabeçalho -->
+	
+	<div class="header">
+		<div style="width:100%" class="container">
+			<h1>Loja</h1>
+		</div>
+		<div style="100%">
+			<h:form>
+				<ul>
+					<a4j:repeat value="#{template.categorias}" var="categoria" >
+						<li>
+							<h:commandButton value="#{categoria.nome}" actionListener="#{template.cbMenuCategoriaActionListener}">
+							</h:commandButton>
+						</li>
+					</a4j:repeat>
+				</ul>
+			</h:form>
+		</div>
+	</div>
+	<div class="menuSubCategorias" id="menuSubCategorias">
+		<h:form>
+			<a4j:repeat value="#{template.subcategorias}" var="subcategoria">
+				<h:commandButton value="#{subcategoria.nome}"></h:commandButton>
+			</a4j:repeat>
+		</h:form>
+	</div>
+	<div class="conteudo">
+		<ui:insert name="conteudo" />
+	</div>
+	<!-- Rodape -->
+	<hr />
+</h:body>
+
+</html>

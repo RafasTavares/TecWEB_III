@@ -213,3 +213,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/Workspace/PrimeiroProjetoJSP/nbproject/private/
+/Workspace/Aritimetica/nbproject/private/
+/Workspace/Academico/nbproject/private/
+/Workspace/Empresa/nbproject/private/
+/Workspace/TW3/nbproject/private/
+/Workspace/teste/nbproject/private/
+/Workspace/ExemploStream/nbproject/private/

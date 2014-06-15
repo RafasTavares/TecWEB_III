@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:s="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+
+</h:head>
+<h:body>
+	 <h:form>
+        <h:panelGrid columns="1">
+            <a4j:outputPanel id="panel" layout="block">
+			<a4j:repeat value="#{produtos.produtos}" var="produto" rows="20" id="repeat">
+		        <rich:panel style="float:left; width:200px; padding:5px;">
+		            <c:facet name="header">
+		                <h:panelGroup>
+		                    <h:outputText value="#{produto.nome}" style="font-weight:bold" />
+		                </h:panelGroup>
+		            </c:facet>
+		            <h:panelGrid columns="1">
+		                <h:outputText value="#{produto.descricao}" />
+		            </h:panelGrid>
+		            <h:panelGrid columns="2">
+		                <h:outputText value="Preço:" style="font-weight:bold" />
+		                <h:outputText value="R$#{produto.preco}" />
+		            </h:panelGrid>
+		            <h:panelGrid >
+		            	<a4j:commandLink value="Ver detalhes" actionListener="#{produtos.cbDetalhesProdutoActionListener}" render="panelProdutos" >
+						</a4j:commandLink>
+					</h:panelGrid>
+		        </rich:panel>
+		     </a4j:repeat>
+	</a4j:outputPanel>
+	</h:panelGrid>
+	</h:form>
+	</h:body>
+</html>
